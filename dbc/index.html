@@ -68,7 +68,7 @@ a{text-decoration:none;color:inherit;}
 .ibi-btn{padding:8px 20px;background:linear-gradient(135deg,var(--gold),var(--orange));border:none;border-radius:7px;cursor:pointer;font-family:'Exo 2',sans-serif;font-weight:700;font-size:.75rem;color:#fff;text-transform:uppercase;letter-spacing:1px;transition:transform .2s;}
 .ibi-btn:hover{transform:translateY(-2px);}
 .rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;}
-.rc{background:linear-gradient(150deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;}
+.rc{background:linear-gradient(150deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:transform .4s cubic-bezier(.34,1.56,.64,1),border-color .3s,box-shadow .3s;}
 .rc:hover{transform:translateY(-8px);border-color:var(--border2);box-shadow:0 22px 60px var(--shadow);}
 .rc::before{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--gold),var(--orange));}
 .scene{height:180px;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#080108 0%,#150510 60%,#0f0808 100%);}
@@ -95,7 +95,7 @@ a{text-decoration:none;color:inherit;}
 .team-table{width:100%;max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
 .tr-group-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--muted);padding:4px 0 6px 4px;border-bottom:1px solid var(--border);margin-top:14px;}
 .tr-group-label:first-child{margin-top:0;}
-.tc{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:14px;padding:14px 20px;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative;overflow:hidden;}
+.tc{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:14px;padding:14px 20px;transition:transform .4s cubic-bezier(.34,1.56,.64,1),border-color .2s,box-shadow .2s;position:relative;overflow:hidden;}
 .tc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:14px 0 0 14px;}
 .tc.role-owner::before{background:linear-gradient(180deg,#f5c842,#e8761a);}
 .tc.role-admin::before{background:linear-gradient(180deg,#ef5350,#b71c1c);}
