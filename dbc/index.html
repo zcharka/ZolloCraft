@@ -518,7 +518,7 @@ document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadAll);else loadAll();
 })();
 
-window.addEventListener('scroll', function(){
+function handleNavScroll(){
   var nb = document.querySelector('.nb');
   if(window.scrollY > 80){
     nb.style.top = '12px';
@@ -547,7 +547,9 @@ window.addEventListener('scroll', function(){
     nb.style.borderRadius = '0';
     nb.style.boxShadow = 'none';
   }
-});
+}
+window.addEventListener('scroll', handleNavScroll);
+handleNavScroll();
   
 </script>
 </body>
