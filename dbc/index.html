@@ -174,7 +174,7 @@ a{text-decoration:none;color:inherit;}
       <a href="#beta" class="nb-dc" style="background:#8A2BE2;">Beta</a>
       <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙 Ciemny</button>
       <a href="https://discord.gg/neSake74T" target="_blank" class="nb-dc">Discord</a>
-      <button class="hamburger" onclick="toggleMenu()" id="hamburger">☰</button>
+      <button class="hamburger" id="hamburger">☰</button>
     </div>
   </div></div>
 </header>
@@ -599,13 +599,13 @@ document.querySelectorAll('.rc, .tc, .dc-card, .cl-entry').forEach(function(card
 
 <div class="mob-menu" id="mobMenu">
   <a href="#beta" class="mob-link" onclick="toggleMenu()">🟣 Beta</a>
-  <a href="#rules" class="mob-link" onclick="toggleMenu()">Zasady</a>
-  <a href="#team" class="mob-link" onclick="toggleMenu()">Ekipa</a>
-  <a href="#changelog" class="mob-link" onclick="toggleMenu()">Changelog</a>
+  <a href="#rules" class="mob-link" onclick="toggleMenu()">⚔️ Zasady</a>
+  <a href="#team" class="mob-link" onclick="toggleMenu()">👥 Ekipa</a>
+  <a href="#changelog" class="mob-link" onclick="toggleMenu()">📋 Changelog</a>
   <div class="mob-divider"></div>
-  <a href="https://discord.gg/neSake74T" target="_blank" class="mob-link">💬 Discord</a>
+  <a href="https://discord.gg/neSake74T" target="_blank" class="mob-link" onclick="toggleMenu()">💬 Discord</a>
   <div class="mob-divider"></div>
-  <button class="mob-link" onclick="toggleTheme();toggleMenu();" style="background:none;border:none;cursor:pointer;text-align:left;width:100%;" id="mobThemeBtn">🌙 Zmień motyw</button>
+  <button onclick="toggleTheme()" style="background:none;border:none;cursor:pointer;text-align:left;width:100%;font-family:'Exo 2',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);padding:14px 18px;border-radius:12px;">🌙 Zmień motyw</button>
 </div>
   
 </body>
