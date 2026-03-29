@@ -520,20 +520,20 @@ document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
 
 window.addEventListener('scroll', function(){
   var nb = document.querySelector('.nb');
-  if(window.scrollY > 60){
-    nb.style.position = 'fixed';
+  if(window.scrollY > 80){
     nb.style.top = '12px';
     nb.style.left = '5%';
     nb.style.right = '5%';
     nb.style.width = 'auto';
     nb.style.height = '52px';
-    nb.style.background = 'rgba(8,5,3,.85)';
-    nb.style.backdropFilter = 'blur(20px)';
+    nb.style.background = 'rgba(8,5,3,.45)';
+    nb.style.backdropFilter = 'blur(32px) saturate(180%)';
+    nb.style.webkitBackdropFilter = 'blur(32px) saturate(180%)';
     nb.style.border = '1px solid rgba(239,83,80,.2)';
+    nb.style.borderBottom = '1px solid rgba(239,83,80,.2)';
     nb.style.borderRadius = '999px';
     nb.style.boxShadow = '0 4px 30px rgba(0,0,0,.5)';
   } else {
-    nb.style.position = 'fixed';
     nb.style.top = '0';
     nb.style.left = '0';
     nb.style.right = '0';
@@ -541,6 +541,7 @@ window.addEventListener('scroll', function(){
     nb.style.height = '64px';
     nb.style.background = 'var(--nb-bg)';
     nb.style.backdropFilter = 'blur(16px)';
+    nb.style.webkitBackdropFilter = 'blur(16px)';
     nb.style.border = 'none';
     nb.style.borderBottom = '1px solid rgba(239,83,80,.15)';
     nb.style.borderRadius = '0';
