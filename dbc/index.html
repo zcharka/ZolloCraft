@@ -162,7 +162,6 @@ a{text-decoration:none;color:inherit;}
 <div class="toast" id="toast">✅ Skopiowano: ZolloCraft.pl</div>
 
 <header class="nb">
-  <button class="hamburger" onclick="toggleMenu()" id="hamburger">☰</button>
   <div class="wrap"><div class="nb-inner">
     <div class="nb-left">
       <a href="https://zollocraft.pl" class="nb-link">← Strona Główna</a>
@@ -172,10 +171,10 @@ a{text-decoration:none;color:inherit;}
     </div>
     <div class="nb-logo" onclick="scrollTo({top:0,behavior:'smooth'})">ZolloCraft.pl</div>
     <div class="nb-right">
-      <button class="hamburger" onclick="toggleMenu()" id="hamburger">☰</button>
-      <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙 Ciemny</button>
       <a href="#beta" class="nb-dc" style="background:#8A2BE2;">Beta</a>
+      <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙 Ciemny</button>
       <a href="https://discord.gg/neSake74T" target="_blank" class="nb-dc">Discord</a>
+      <button class="hamburger" onclick="toggleMenu()" id="hamburger">☰</button>
     </div>
   </div></div>
 </header>
@@ -605,6 +604,8 @@ document.querySelectorAll('.rc, .tc, .dc-card, .cl-entry').forEach(function(card
   <a href="#changelog" class="mob-link" onclick="toggleMenu()">Changelog</a>
   <div class="mob-divider"></div>
   <a href="https://discord.gg/neSake74T" target="_blank" class="mob-link">💬 Discord</a>
+  <div class="mob-divider"></div>
+  <button class="mob-link" onclick="toggleTheme();toggleMenu();" style="background:none;border:none;cursor:pointer;text-align:left;width:100%;" id="mobThemeBtn">🌙 Zmień motyw</button>
 </div>
   
 </body>
