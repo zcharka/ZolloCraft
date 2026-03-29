@@ -550,6 +550,24 @@ function handleNavScroll(){
 }
 window.addEventListener('scroll', handleNavScroll);
 handleNavScroll();
+
+document.querySelectorAll('.rc, .tc, .dc-card, .cl-entry').forEach(function(card){
+  card.addEventListener('mousemove', function(e){
+    var rect = card.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    var cx = rect.width / 2;
+    var cy = rect.height / 2;
+    var rotX = ((y - cy) / cy) * -8;
+    var rotY = ((x - cx) / cx) * 8;
+    card.style.transform = 'perspective(1000px) rotateX('+rotX+'deg) rotateY('+rotY+'deg) translateY(-8px) scale(1.02)';
+    card.style.transition = 'transform 0.1s ease-out';
+  });
+  card.addEventListener('mouseleave', function(){
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+    card.style.transition = 'transform 0.5s cubic-bezier(.34,1.56,.64,1)';
+  });
+});
   
 </script>
 </body>
