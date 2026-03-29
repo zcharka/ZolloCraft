@@ -473,9 +473,10 @@ function toggleTheme(){
   var html=document.documentElement,btn=document.getElementById('themeBtn');
   if(html.getAttribute('data-theme')==='dark'){html.setAttribute('data-theme','light');btn.textContent='☀️ Jasny';localStorage.setItem('zc-theme-dbc','light');}
   else{html.setAttribute('data-theme','dark');btn.textContent='🌙 Ciemny';localStorage.setItem('zc-theme-dbc','dark');}
+  if(window.scrollY<=80)handleNavScroll(false);
 }
 (function(){var t=localStorage.getItem('zc-theme-dbc');if(t==='light'){document.documentElement.setAttribute('data-theme','light');document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('themeBtn');if(b)b.textContent='☀️ Jasny';});}})();
-
+  
 function copyIP(){
   navigator.clipboard.writeText('ZolloCraft.pl').then(function(){
     var t=document.getElementById('toast');t.classList.add('on');setTimeout(function(){t.classList.remove('on');},2200);
@@ -520,8 +521,10 @@ document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadAll);else loadAll();
 })();
 
-function handleNavScroll(){
+function handleNavScroll(animate){
   var nb = document.querySelector('.nb');
+  if(!animate) nb.style.transition = 'none';
+  else nb.style.transition = 'all .4s cubic-bezier(.4,0,.2,1)';
   if(window.scrollY > 80){
     nb.style.top = '12px';
     nb.style.left = '5%';
@@ -532,7 +535,6 @@ function handleNavScroll(){
     nb.style.backdropFilter = 'blur(32px) saturate(180%)';
     nb.style.webkitBackdropFilter = 'blur(32px) saturate(180%)';
     nb.style.border = '1px solid rgba(239,83,80,.2)';
-    nb.style.borderBottom = '1px solid rgba(239,83,80,.2)';
     nb.style.borderRadius = '999px';
     nb.style.boxShadow = '0 4px 30px rgba(0,0,0,.5)';
   } else {
@@ -549,9 +551,10 @@ function handleNavScroll(){
     nb.style.borderRadius = '0';
     nb.style.boxShadow = 'none';
   }
+  if(!animate) setTimeout(function(){ nb.style.transition = 'all .4s cubic-bezier(.4,0,.2,1)'; }, 50);
 }
-window.addEventListener('scroll', handleNavScroll);
-handleNavScroll();
+window.addEventListener('scroll', function(){ handleNavScroll(true); });
+handleNavScroll(false);
 
 document.querySelectorAll('.rc, .tc, .dc-card, .cl-entry').forEach(function(card){
   card.addEventListener('mousemove', function(e){
