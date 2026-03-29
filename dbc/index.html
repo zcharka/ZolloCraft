@@ -522,14 +522,11 @@ window.addEventListener('scroll', function(){
   var nb = document.querySelector('.nb');
   if(window.scrollY > 60){
     nb.style.height = '48px';
-    nb.style.background = 'rgba(8,5,3,.85)';
+    nb.style.background = 'rgba(8,5,3,.95)';
     nb.style.backdropFilter = 'blur(20px)';
-    nb.style.boxShadow = '0 4px 30px rgba(0,0,0,.5)';
-    nb.style.margin = '8px 16px';
-    nb.style.borderRadius = '16px';
-    nb.style.left = '0';
-    nb.style.right = '0';
-    nb.style.width = 'auto';
+    nb.style.boxShadow = '0 2px 20px rgba(0,0,0,.5)';
+    nb.style.margin = '0';
+    nb.style.borderRadius = '0';
   } else {
     nb.style.height = '64px';
     nb.style.background = 'var(--nb-bg)';
@@ -537,8 +534,6 @@ window.addEventListener('scroll', function(){
     nb.style.boxShadow = 'none';
     nb.style.margin = '0';
     nb.style.borderRadius = '0';
-  }
-});
   }
 });
 </script>
