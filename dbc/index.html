@@ -18,7 +18,9 @@ a{text-decoration:none;color:inherit;}
 #ptx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
 .p{position:absolute;border-radius:50%;opacity:0;animation:rise linear infinite;}
 @keyframes rise{0%{transform:translateY(110vh) scale(0);opacity:0;}8%{opacity:1;}92%{opacity:.5;}100%{transform:translateY(-5vh) scale(2);opacity:0;}}
-.nb{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;background:var(--nb-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(16px);display:flex;align-items:center;transition:all .4s cubic-bezier(.4,0,.2,1);}
+
+/* ── NAVBAR ── */
+.nb{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;background:var(--nb-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(16px);display:flex;align-items:center;transition:top .4s cubic-bezier(.4,0,.2,1),left .4s cubic-bezier(.4,0,.2,1),right .4s cubic-bezier(.4,0,.2,1),width .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .4s cubic-bezier(.4,0,.2,1),border-radius .4s cubic-bezier(.4,0,.2,1),box-shadow .4s cubic-bezier(.4,0,.2,1),border .4s cubic-bezier(.4,0,.2,1);}
 .wrap{max-width:1200px;margin:0 auto;padding:0 28px;width:100%;}
 .nb-inner{display:flex;align-items:center;justify-content:space-between;}
 .nb-left,.nb-right{display:flex;align-items:center;gap:22px;flex:1;}
@@ -31,6 +33,28 @@ a{text-decoration:none;color:inherit;}
 .nb-dc:hover{background:#4752c4;transform:translateY(-1px);}
 .theme-btn{background:rgba(255,255,255,.08);border:1px solid var(--border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:1rem;color:var(--text);transition:all .2s;display:flex;align-items:center;gap:5px;backdrop-filter:blur(8px);}
 .theme-btn:hover{border-color:var(--gold);}
+
+/* ── HAMBURGER ── */
+.hbg{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--text);font-size:1.5rem;line-height:1;}
+
+/* ── MOBILE MENU ── */
+.mob-menu{display:none;position:fixed;top:80px;left:5%;right:5%;z-index:300;background:rgba(8,5,3,.8);backdrop-filter:blur(32px) saturate(180%);-webkit-backdrop-filter:blur(32px) saturate(180%);border:1px solid rgba(239,83,80,.2);border-radius:20px;padding:20px;flex-direction:column;gap:4px;}
+.mob-menu.open{display:flex;}
+.mob-link{font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);padding:14px 18px;border-radius:12px;transition:background .2s;text-align:left;display:block;}
+.mob-link:hover{background:rgba(239,83,80,.1);}
+.mob-divider{height:1px;background:var(--border);margin:6px 0;}
+.mob-btn{background:none;border:none;cursor:pointer;text-align:left;width:100%;font-family:'Exo 2',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);padding:14px 18px;border-radius:12px;transition:background .2s;}
+.mob-btn:hover{background:rgba(239,83,80,.1);}
+
+@media(max-width:640px){
+  .nb-left{display:none;}
+  .nb-right .nb-link,.nb-right .nb-dc,.nb-right .theme-btn{display:none;}
+  .hbg{display:flex;}
+  .stats-row{gap:20px;}
+}
+@media(max-width:900px){.dc-card{padding:36px 22px;}.ft-grid{justify-content:center;text-align:center;}}
+
+/* ── REST OF STYLES ── */
 .hero{min-height:100vh;padding-top:64px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse 70% 60% at 50% 55%,rgba(239,83,80,.08) 0%,transparent 70%),var(--bg);position:relative;z-index:1;transition:background .4s;}
 .hero-inner{display:flex;flex-direction:column;align-items:center;text-align:center;padding:52px 0 44px;width:100%;}
 .logo-wrap{position:relative;display:inline-block;margin-bottom:36px;}
@@ -40,7 +64,7 @@ a{text-decoration:none;color:inherit;}
 .qi{background:rgba(239,83,80,.06);border:1px solid var(--border);border-radius:10px;padding:11px 20px;font-size:.9rem;color:var(--text2);font-style:italic;animation:fadeSlide .6s ease both;}
 .qi:nth-child(1){animation-delay:.1s;}.qi:nth-child(2){animation-delay:.2s;}.qi:nth-child(3){animation-delay:.3s;}
 @keyframes fadeSlide{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-.ip-box{display:flex;align-items:center;border-radius:20px;overflow:hidden;border:2px solid var(--border2);box-shadow:0 0 30px rgba(239,83,80,.12);margin-bottom:40px;animation:bPulse 2.5s ease-in-out infinite;background:rgba(30,10,5,.5);;backdrop-filter:blur(10px);}
+.ip-box{display:flex;align-items:center;border-radius:20px;overflow:hidden;border:2px solid var(--border2);box-shadow:0 0 30px rgba(239,83,80,.12);margin-bottom:40px;background:rgba(30,10,5,.5);backdrop-filter:blur(10px);}
 .ip-lbl{background:rgba(239,83,80,.15);padding:14px 18px;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:var(--gold);border-right:1px solid var(--border);}
 .ip-val{background:rgba(255,255,255,.04);padding:14px 24px;font-family:'JetBrains Mono',monospace;font-size:1.15rem;font-weight:700;letter-spacing:2px;}
 .ip-val .z{color:var(--gold);font-weight:900;}.ip-val .c{color:var(--text);font-weight:900;}
@@ -123,7 +147,6 @@ a{text-decoration:none;color:inherit;}
 .cl-items li{color:var(--muted2);font-size:.9rem;line-height:1.6;padding-left:17px;position:relative;}
 .cl-items li::before{content:'›';position:absolute;left:0;color:var(--gold);font-weight:700;}
 .cl-items li strong{color:var(--text);}
-.dc-sec{background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(88,101,242,.09) 0%,transparent 70%),var(--bg2);transition:background .4s;}
 .dc-card{max-width:540px;margin:0 auto;text-align:center;background:rgba(88,101,242,.07);border:1px solid rgba(88,101,242,.17);border-radius:22px;padding:52px 60px;display:flex;flex-direction:column;align-items:center;gap:16px;}
 .dc-title{font-family:'Cinzel Decorative',serif;font-size:1.5rem;color:var(--text);}
 .dc-sub{color:var(--muted2);line-height:1.7;font-size:.93rem;}
@@ -146,19 +169,6 @@ a{text-decoration:none;color:inherit;}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .rv.vis{opacity:1;transform:translateY(0);}
 .rv1{transition-delay:.1s;}.rv2{transition-delay:.2s;}.rv3{transition-delay:.3s;}
-.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:4px 8px;}
-.mob-menu{display:none;position:fixed;top:80px;left:5%;right:5%;z-index:300;background:rgba(8,5,3,.75);backdrop-filter:blur(32px) saturate(180%);-webkit-backdrop-filter:blur(32px) saturate(180%);border:1px solid rgba(239,83,80,.2);border-radius:20px;padding:20px;flex-direction:column;gap:4px;}
-.mob-menu.open{display:flex;}
-.mob-link{font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);padding:14px 18px;border-radius:12px;transition:background .2s;text-align:left;display:block;}
-.mob-link:hover{background:rgba(239,83,80,.1);}
-.mob-divider{height:1px;background:var(--border);margin:6px 0;}
-@media(max-width:640px){
-  .nb-left{display:none;}
-  .nb-right .nb-link,.nb-right .nb-dc,.nb-right .theme-btn{display:none;}
-  #hamburger{display:flex !important;}
-  .stats-row{gap:20px;}
-}
-@media(max-width:900px){.dc-card{padding:36px 22px;}.ft-grid{justify-content:center;text-align:center;}}
 </style>
 </head>
 <body>
@@ -178,10 +188,11 @@ a{text-decoration:none;color:inherit;}
       <a href="#beta" class="nb-dc" style="background:#8A2BE2;">Beta</a>
       <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙 Ciemny</button>
       <a href="https://discord.gg/neSake74T" target="_blank" class="nb-dc">Discord</a>
-      <button id="hamburger" style="display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--text);font-size:1.5rem;">☰</button>
+      <button class="hbg" id="hbg">☰</button>
     </div>
   </div></div>
 </header>
+
 <section class="sec sec-b" id="trailer">
   <div class="wrap">
     <div class="sh rv"><div class="sh-t">Trailer</div><div class="sh-line"><div class="sh-bl"></div><span class="sh-s">Obejrzyj zwiastun trybu</span><div class="sh-br"></div></div></div>
@@ -193,26 +204,21 @@ a{text-decoration:none;color:inherit;}
   </div>
 </section>
 
-
 <section class="hero">
-  
   <div class="wrap"><div class="hero-inner">
     <div class="logo-wrap rv" id="logoWrap">
       <div class="logo-text">Dead by Craft</div>
-
     </div>
     <div class="quotes-row rv rv1">
       <div class="qi">🔪 Uciekaj, albo zgiń. Wybór należy do Ciebie.</div>
       <div class="qi">⚡ Naprawiaj generatory, by przetrwać i uciec.</div>
       <div class="qi">🩸 Zabójca już tu jest.</div>
     </div>
-
     <div class="ip-box rv rv2">
       <span class="ip-lbl">IP Serwera</span>
       <span class="ip-val"><span class="z">Zollo</span><span class="c">Craft.pl</span></span>
       <button class="ip-copy" onclick="copyIP()" title="Kopiuj IP">📋</button>
     </div>
-    
     <div class="stats-row rv rv3">
       <div class="si"><span class="sn" id="dbcPlayers">0</span><span class="sl"><span class="dot"></span>Graczy Online na trybie</span></div>
       <div class="si"><span class="sn">40</span><span class="sl">Maksimum Slotów</span></div>
@@ -231,7 +237,6 @@ a{text-decoration:none;color:inherit;}
   <div class="wrap">
     <div class="sh rv"><div class="sh-t">Zasady Rozgrywki</div><div class="sh-line"><div class="sh-bl"></div><span class="sh-s">Jak grać na Dead By Craft</span><div class="sh-br"></div></div></div>
     <div class="rules-grid">
-
       <div class="rc rv rv1">
         <div class="scene">
           <div class="psurv s1">🏃</div><div class="psurv s2">🫣</div><div class="psurv s3">🏃</div>
@@ -251,7 +256,6 @@ a{text-decoration:none;color:inherit;}
           </ul>
         </div>
       </div>
-
       <div class="rc rv rv2">
         <div class="scene">
           <div class="bdr">🩸</div><div class="bdr">🩸</div><div class="bdr">🩸</div>
@@ -269,7 +273,6 @@ a{text-decoration:none;color:inherit;}
           </ul>
         </div>
       </div>
-
       <div class="rc rv rv3">
         <div class="scene" style="background:linear-gradient(180deg,#111 0%,#1a0505 100%);display:flex;align-items:center;justify-content:center;">
           <div style="font-size:3rem;">⚙️</div>
@@ -285,7 +288,6 @@ a{text-decoration:none;color:inherit;}
           </ul>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -294,81 +296,55 @@ a{text-decoration:none;color:inherit;}
   <div class="wrap">
     <div class="sh rv"><div class="sh-t">Administracja DBC</div><div class="sh-line"><div class="sh-bl"></div><span class="sh-s">Zarządzają trybem</span><div class="sh-br"></div></div></div>
     <div class="team-table rv">
-
       <div class="tr-group-label">👑 Zarząd Główny</div>
-
       <div class="tc role-owner rv rv1">
         <div class="tc-av"><img data-player="zcharka" data-size="52" alt="zcharka"></div>
-        <div class="tc-info">
-          <div class="tc-name">zcharka</div>
-          <div class="tc-srv">Właściciel Sieci</div>
-        </div>
+        <div class="tc-info"><div class="tc-name">zcharka</div><div class="tc-srv">Właściciel Sieci</div></div>
         <span class="tc-role r-owner">👑 Owner i beta tester trybu</span>
       </div>
-
       <div class="tc role-owner rv rv2">
         <div class="tc-av"><img data-player="KillerBunny" data-size="52" alt="KillerBunny"></div>
-        <div class="tc-info">
-          <div class="tc-name">ZolloMordo5552</div>
-          <div class="tc-srv">Właściciel Sieci i beta testery trybu</div>
-        </div>
+        <div class="tc-info"><div class="tc-name">ZolloMordo5552</div><div class="tc-srv">Właściciel Sieci i beta testery trybu</div></div>
         <span class="tc-role r-owner">👑 Owner</span>
       </div>
-
       <div class="tr-group-label">🛡️ Administracja Dead by Craft</div>
-
       <div class="tc role-admin rv rv1">
         <div class="tc-av"><img data-player="Papryka699" data-size="52" alt="Papryka699"></div>
-        <div class="tc-info">
-          <div class="tc-name">Papryka699</div>
-          <div class="tc-srv">Opiekun Trybu & Administracja</div>
-        </div>
+        <div class="tc-info"><div class="tc-name">Papryka699</div><div class="tc-srv">Opiekun Trybu & Administracja</div></div>
         <span class="tc-role r-admin">🛡️ Admin i beta tester trybu</span>
       </div>
-
       <div class="tr-group-label">🔧 Technicy</div>
-
       <div class="tc role-tech rv rv1">
         <div class="tc-av"><img data-player="_sebZi_" data-size="52" alt="_sebZi_"></div>
-        <div class="tc-info">
-          <div class="tc-name">_sebZi_</div>
-          <div class="tc-srv">Tworzenie i optymalizacja mechanik</div>
-        </div>
+        <div class="tc-info"><div class="tc-name">_sebZi_</div><div class="tc-srv">Tworzenie i optymalizacja mechanik</div></div>
         <span class="tc-role r-tech">🔧 Technik i beta tester trybu</span>
       </div>
-
     </div>
   </div>
 </section>
 
-<section class="sec sec-b" id="team">
+<section class="sec sec-b">
   <div class="wrap">
     <div class="sh rv"><div class="sh-t">Beta testerzy DBC</div><div class="sh-line"><div class="sh-bl"></div><span class="sh-s">Sprawdzają i zgłaszają błędy</span><div class="sh-br"></div></div></div>
     <div class="team-table rv">
-
       <div class="tc role-beta rv rv1">
         <div class="tc-av"><img data-player="e__S" data-size="52" alt="e__s"></div>
-        <div class="tc-info">
-          <div class="tc-name">e__s</div>
-        </div>
+        <div class="tc-info"><div class="tc-name">e__s</div></div>
         <span class="tc-role r-beta">Beta tester trybu</span>
       </div>
-
-     <div class="tc role-beta rv rv1">
+      <div class="tc role-beta rv rv1">
         <div class="tc-av"><img data-player="dominator_jestem" data-size="52" alt="dominator_jestem"></div>
-        <div class="tc-info">
-          <div class="tc-name">dominator_jestem</div>
-        </div>
+        <div class="tc-info"><div class="tc-name">dominator_jestem</div></div>
         <span class="tc-role r-beta">Beta tester trybu</span>
       </div>
-
-     <div class="tc role-beta rv rv1">
+      <div class="tc role-beta rv rv1">
         <div class="tc-av"><img data-player="xSebolinio" data-size="52" alt="xSebolinio"></div>
-        <div class="tc-info">
-          <div class="tc-name">xSebolinio</div>
-        </div>
+        <div class="tc-info"><div class="tc-name">xSebolinio</div></div>
         <span class="tc-role r-beta">Beta tester trybu</span>
       </div>
+    </div>
+  </div>
+</section>
 
 <section class="sec sec-b" id="changelog">
   <div class="wrap">
@@ -388,41 +364,10 @@ a{text-decoration:none;color:inherit;}
     </div>
   </div>
 </section>
-<!-- <section class="sec dc-sec">
-  <div class="wrap">
-    <div class="dc-card rv">
-      <div style="font-size:3.2rem">💬</div>
-      <div class="dc-title">Masz pomysł na rozwój DBC?</div>
-      <p class="dc-sub">Wpadnij na nasz Discord i dołącz do kanału propozycji! Zagraj z nami w Dead by Craft.</p>
-      <a href="https://discord.gg/neSake74T" target="_blank" class="btn btn-d" style="font-size:.95rem;padding:14px 40px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.686.874-1.36 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.1.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-        dc.zollocraft.pl
-      </a>
-    </div>
-  </div>
-</section>
-<section class="sec dc-sec" id="beta">
-  <div class="wrap">
-    <div class="dc-card rv">
-      <div style="font-size:3.2rem">📋</div>
-      <div class="dc-title">Chcesz zostać beta testerem DBC?</div>
-      <p class="dc-sub">Wypełnij ankietę i dołącz na discorda! (mamy 2 wolne miejsca)</p>
-      <a href="https://discord.gg/neSake74T" target="_blank" class="btn btn-d" style="font-size:.95rem;padding:14px 40px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.686.874-1.36 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.1.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-        dc.zollocraft.pl
-      </a>
-      <a href="https://forms.gle/pvkDuE2sntegXeWj6" target="_blank" class="btn" style="font-size:.95rem;padding:14px 40px;background:#8A2BE2;color:#fff;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-        ankieta
-      </a>
-    </div>
-  </div>
-</section> -->
 
 <section class="sec sec-b" id="beta">
   <div class="wrap">
     <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;">
-
       <div class="dc-card rv" style="flex:1;min-width:280px;max-width:480px;">
         <div style="font-size:3.2rem">💬</div>
         <div class="dc-title">Masz pomysł na rozwój DBC?</div>
@@ -432,7 +377,6 @@ a{text-decoration:none;color:inherit;}
           dc.zollocraft.pl
         </a>
       </div>
-
       <div class="dc-card rv" style="flex:1;min-width:280px;max-width:480px;">
         <div style="font-size:3.2rem">📋</div>
         <div class="dc-title">Chcesz zostać beta testerem DBC?</div>
@@ -446,7 +390,6 @@ a{text-decoration:none;color:inherit;}
           ankieta
         </a>
       </div>
-
     </div>
   </div>
 </section>
@@ -475,7 +418,21 @@ a{text-decoration:none;color:inherit;}
   </div>
 </footer>
 
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="https://zollocraft.pl" class="mob-link">← Strona Główna</a>
+  <a href="#beta" class="mob-link">🟣 Beta</a>
+  <a href="#rules" class="mob-link">⚔️ Zasady</a>
+  <a href="#team" class="mob-link">👥 Ekipa</a>
+  <a href="#changelog" class="mob-link">📋 Changelog</a>
+  <div class="mob-divider"></div>
+  <a href="https://discord.gg/neSake74T" target="_blank" class="mob-link">💬 Discord</a>
+  <div class="mob-divider"></div>
+  <button class="mob-btn" id="mobThemeBtn">🌙 Zmień motyw</button>
+</div>
+
 <script>
+// ── PARTICLES ──
 (function(){
   var c=document.getElementById('ptx'),cols=['#ef5350','#b71c1c','#ff8a80','#ef5350'];
   for(var i=0;i<28;i++){
@@ -486,37 +443,54 @@ a{text-decoration:none;color:inherit;}
   }
 })();
 
+// ── THEME ──
 function toggleTheme(){
-  var html=document.documentElement,btn=document.getElementById('themeBtn');
-  if(html.getAttribute('data-theme')==='dark'){html.setAttribute('data-theme','light');btn.textContent='☀️ Jasny';localStorage.setItem('zc-theme-dbc','light');}
-  else{html.setAttribute('data-theme','dark');btn.textContent='🌙 Ciemny';localStorage.setItem('zc-theme-dbc','dark');}
+  var html=document.documentElement,btn=document.getElementById('themeBtn'),mbtn=document.getElementById('mobThemeBtn');
+  if(html.getAttribute('data-theme')==='dark'){
+    html.setAttribute('data-theme','light');
+    btn.textContent='☀️ Jasny';
+    mbtn.textContent='☀️ Zmień motyw';
+    localStorage.setItem('zc-theme-dbc','light');
+  } else {
+    html.setAttribute('data-theme','dark');
+    btn.textContent='🌙 Ciemny';
+    mbtn.textContent='🌙 Zmień motyw';
+    localStorage.setItem('zc-theme-dbc','dark');
+  }
   handleNavScroll(false);
 }
-(function(){var t=localStorage.getItem('zc-theme-dbc');if(t==='light'){document.documentElement.setAttribute('data-theme','light');document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('themeBtn');if(b)b.textContent='☀️ Jasny';});}})();
-  
+(function(){
+  var t=localStorage.getItem('zc-theme-dbc');
+  if(t==='light'){
+    document.documentElement.setAttribute('data-theme','light');
+    document.addEventListener('DOMContentLoaded',function(){
+      var b=document.getElementById('themeBtn');
+      if(b)b.textContent='☀️ Jasny';
+    });
+  }
+})();
+
+// ── COPY IP ──
 function copyIP(){
   navigator.clipboard.writeText('ZolloCraft.pl').then(function(){
     var t=document.getElementById('toast');t.classList.add('on');setTimeout(function(){t.classList.remove('on');},2200);
   });
 }
 
-// ── GRACZE DBC – nl12.icehost.pl:25707 ──
+// ── PLAYERS ──
 function fetchPlayers(){
   fetch('https://api.mcsrvstat.us/3/nl12.icehost.pl:25707')
     .then(function(r){return r.json();})
-    .then(function(d){
-      document.getElementById('dbcPlayers').textContent=d.online?(d.players&&d.players.online||0):0;
-    })
-    .catch(function(){
-      document.getElementById('dbcPlayers').textContent=0;
-    });
+    .then(function(d){document.getElementById('dbcPlayers').textContent=d.online?(d.players&&d.players.online||0):0;})
+    .catch(function(){document.getElementById('dbcPlayers').textContent=0;});
 }
 fetchPlayers();setInterval(fetchPlayers,60000);
 
+// ── REVEAL ──
 var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('vis');});},{threshold:0.1});
 document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
 
-// ── AVATARY ──
+// ── AVATARS ──
 (function(){
   function load(img){
     var name=img.dataset.player,size=img.dataset.size||52;
@@ -537,86 +511,74 @@ document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
   function loadAll(){document.querySelectorAll('img[data-player]').forEach(load);}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadAll);else loadAll();
 })();
-function handleNavScroll(animate){
-  var nb = document.querySelector('.nb');
-  nb.style.transition = animate ? 'all .4s cubic-bezier(.4,0,.2,1)' : 'none';
-  if(window.scrollY > 80){
-    nb.style.top = '12px';
-    nb.style.left = '5%';
-    nb.style.right = '5%';
-    nb.style.width = 'auto';
-    nb.style.height = '52px';
-    var isLight = document.documentElement.getAttribute('data-theme')==='light';
-    nb.style.background = isLight ? 'rgba(248,244,238,.6)' : 'rgba(8,5,3,.45)';
-    nb.style.backdropFilter = 'blur(32px) saturate(180%)';
-    nb.style.webkitBackdropFilter = 'blur(32px) saturate(180%)';
-    nb.style.border = '1px solid rgba(239,83,80,.2)';
-    nb.style.borderRadius = '999px';
-    nb.style.boxShadow = '0 4px 30px rgba(0,0,0,.5)';
-  } else {
-    nb.style.top = '0';
-    nb.style.left = '0';
-    nb.style.right = '0';
-    nb.style.width = '100%';
-    nb.style.height = '64px';
-    nb.style.background = 'var(--nb-bg)';
-    nb.style.backdropFilter = 'blur(16px)';
-    nb.style.webkitBackdropFilter = 'blur(16px)';
-    nb.style.border = 'none';
-    nb.style.borderBottom = '1px solid rgba(239,83,80,.15)';
-    nb.style.borderRadius = '0';
-    nb.style.boxShadow = 'none';
-  }
-  if(!animate) requestAnimationFrame(function(){
-    requestAnimationFrame(function(){
-      nb.style.transition = 'all .4s cubic-bezier(.4,0,.2,1)';
-    });
-  });
-}
 
-window.addEventListener('scroll', function(){ handleNavScroll(true); });
+// ── NAVBAR SCROLL ──
+function handleNavScroll(animate){
+  var nb=document.querySelector('.nb');
+  if(!animate){nb.style.transition='none';}
+  if(window.scrollY>80){
+    nb.style.top='12px';nb.style.left='5%';nb.style.right='5%';nb.style.width='auto';nb.style.height='52px';
+    var isLight=document.documentElement.getAttribute('data-theme')==='light';
+    nb.style.background=isLight?'rgba(248,244,238,.6)':'rgba(8,5,3,.45)';
+    nb.style.backdropFilter='blur(32px) saturate(180%)';nb.style.webkitBackdropFilter='blur(32px) saturate(180%)';
+    nb.style.border='1px solid rgba(239,83,80,.2)';nb.style.borderRadius='999px';nb.style.boxShadow='0 4px 30px rgba(0,0,0,.5)';
+  } else {
+    nb.style.top='0';nb.style.left='0';nb.style.right='0';nb.style.width='100%';nb.style.height='64px';
+    nb.style.background='var(--nb-bg)';nb.style.backdropFilter='blur(16px)';nb.style.webkitBackdropFilter='blur(16px)';
+    nb.style.border='none';nb.style.borderBottom='1px solid rgba(239,83,80,.15)';nb.style.borderRadius='0';nb.style.boxShadow='none';
+  }
+  if(!animate){
+    requestAnimationFrame(function(){requestAnimationFrame(function(){nb.style.transition='';});});
+  }
+}
+window.addEventListener('scroll',function(){handleNavScroll(true);});
 handleNavScroll(false);
 
-document.querySelectorAll('.rc, .tc, .dc-card, .cl-entry').forEach(function(card){
-  card.addEventListener('mousemove', function(e){
-    var rect = card.getBoundingClientRect();
-    var x = e.clientX - rect.left;
-    var y = e.clientY - rect.top;
-    var cx = rect.width / 2;
-    var cy = rect.height / 2;
-    var rotX = ((y - cy) / cy) * -8;
-    var rotY = ((x - cx) / cx) * 8;
-    card.style.transform = 'perspective(1000px) rotateX('+rotX+'deg) rotateY('+rotY+'deg) translateY(-8px) scale(1.02)';
-    card.style.transition = 'transform 0.1s ease-out';
+// ── TILT ──
+document.querySelectorAll('.rc,.tc,.dc-card,.cl-entry').forEach(function(card){
+  card.addEventListener('mousemove',function(e){
+    var rect=card.getBoundingClientRect();
+    var rotX=((e.clientY-rect.top-rect.height/2)/rect.height*2)*-8;
+    var rotY=((e.clientX-rect.left-rect.width/2)/rect.width*2)*8;
+    card.style.transform='perspective(1000px) rotateX('+rotX+'deg) rotateY('+rotY+'deg) translateY(-8px) scale(1.02)';
+    card.style.transition='transform 0.1s ease-out';
   });
-  card.addEventListener('mouseleave', function(){
-    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-    card.style.transition = 'transform 0.5s cubic-bezier(.34,1.56,.64,1)';
+  card.addEventListener('mouseleave',function(){
+    card.style.transform='perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+    card.style.transition='transform 0.5s cubic-bezier(.34,1.56,.64,1)';
   });
 });
 
-document.getElementById('hamburger').addEventListener('click', function(){
-  var m = document.getElementById('mobMenu');
-  if(m.classList.contains('open')){
-    m.classList.remove('open');
-  } else {
-    m.classList.add('open');
-  }
-});
+// ── HAMBURGER ──
+document.addEventListener('DOMContentLoaded', function(){
+  var btn = document.getElementById('hbg');
+  var menu = document.getElementById('mobMenu');
+  var themeBtn = document.getElementById('mobThemeBtn');
 
+  btn.addEventListener('click', function(){
+    menu.classList.toggle('open');
+  });
+
+  // zamknij po kliknięciu w link
+  menu.querySelectorAll('.mob-link').forEach(function(link){
+    link.addEventListener('click', function(){
+      menu.classList.remove('open');
+    });
+  });
+
+  // przełącz motyw z menu
+  themeBtn.addEventListener('click', function(){
+    toggleTheme();
+    menu.classList.remove('open');
+  });
+
+  // zamknij po kliknięciu poza menu
+  document.addEventListener('click', function(e){
+    if(!menu.contains(e.target) && e.target !== btn){
+      menu.classList.remove('open');
+    }
+  });
+});
 </script>
-
-<div class="mob-menu" id="mobMenu">
-  <a href="https://zollocraft.pl" class="mob-link">← Strona Główna</a>
-  <a href="#beta" class="mob-link">🟣 Beta</a>
-  <a href="#rules" class="mob-link">⚔️ Zasady</a>
-  <a href="#team" class="mob-link">👥 Ekipa</a>
-  <a href="#changelog" class="mob-link">📋 Changelog</a>
-  <div class="mob-divider"></div>
-  <a href="https://discord.gg/neSake74T" target="_blank" class="mob-link">💬 Discord</a>
-  <div class="mob-divider"></div>
-  <button onclick="toggleTheme();" style="background:none;border:none;cursor:pointer;text-align:left;width:100%;font-family:'Exo 2',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);padding:14px 18px;border-radius:12px;">🌙 Zmień motyw</button>
-</div>
-  
 </body>
 </html>
