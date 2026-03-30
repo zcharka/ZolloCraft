@@ -598,15 +598,34 @@ document.querySelectorAll('.rc, .tc, .dc-card, .cl-entry').forEach(function(card
   });
 });
 
-var ham = document.getElementById('hamburger');
-var mMenu = document.getElementById('mobMenu');
-ham.addEventListener('click', function(e){
-  e.stopPropagation();
-  mMenu.classList.toggle('open');
-});
-document.addEventListener('click', function(e){
-  if(!mMenu.contains(e.target) && e.target !== ham) mMenu.classList.remove('open');
+document.addEventListener('DOMContentLoaded', function(){
+  var ham = document.getElementById('hamburger');
+  var mMenu = document.getElementById('mobMenu');
+  
+  if(ham && mMenu) {
+    ham.addEventListener('click', function(e){
+      e.stopPropagation();
+      mMenu.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e){
+      if(!mMenu.contains(e.target) && e.target !== ham) mMenu.classList.remove('open');
+    });
+  }
 });
 </script>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="https://zollocraft.pl" class="mob-link">← Strona Główna</a>
+  <a href="#beta" class="mob-link">🟣 Beta</a>
+  <a href="#rules" class="mob-link">⚔️ Zasady</a>
+  <a href="#team" class="mob-link">👥 Ekipa</a>
+  <a href="#changelog" class="mob-link">📋 Changelog</a>
+  <div class="mob-divider"></div>
+  <a href="https://discord.gg/neSake74T" target="_blank" class="mob-link">💬 Discord</a>
+  <div class="mob-divider"></div>
+  <button onclick="toggleTheme();" class="mob-link" style="background:none;border:none;cursor:pointer;width:100%;text-align:left;">🌙 Zmień motyw</button>
+</div>
+
 </body>
 </html>
