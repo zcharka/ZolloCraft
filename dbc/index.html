@@ -152,9 +152,13 @@ a{text-decoration:none;color:inherit;}
 .mob-link{font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);padding:14px 18px;border-radius:12px;transition:background .2s;text-align:left;display:block;}
 .mob-link:hover{background:rgba(239,83,80,.1);}
 .mob-divider{height:1px;background:var(--border);margin:6px 0;}
-@media(max-width:640px){#hamburger{display:flex !important;}.nb-left .nb-link,.nb-right .nb-link:not(.nb-dc){display:none;}.nb-dc{display:none;}}
+@media(max-width:640px){
+  .nb-left{display:none;}
+  .nb-right .nb-link,.nb-right .nb-dc,.nb-right .theme-btn{display:none;}
+  #hamburger{display:flex !important;}
+  .stats-row{gap:20px;}
+}
 @media(max-width:900px){.dc-card{padding:36px 22px;}.ft-grid{justify-content:center;text-align:center;}}
-@media(max-width:640px){.nb-left .nb-link,.nb-right .nb-link:not(.nb-dc){display:none;}.stats-row{gap:20px;}}
 </style>
 </head>
 <body>
@@ -174,7 +178,7 @@ a{text-decoration:none;color:inherit;}
       <a href="#beta" class="nb-dc" style="background:#8A2BE2;">Beta</a>
       <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙 Ciemny</button>
       <a href="https://discord.gg/neSake74T" target="_blank" class="nb-dc">Discord</a>
-      <button id="hamburger" style="display:none;background:none;border:none;cursor:pointer;padding:6px;color:#fff;font-size:1.5rem;" onclick="document.getElementById('mobMenu').classList.toggle('open')">☰</button>
+      <button id="hamburger" style="display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--text);font-size:1.5rem;">☰</button>
     </div>
   </div></div>
 </header>
@@ -591,18 +595,27 @@ document.querySelectorAll('.rc, .tc, .dc-card, .cl-entry').forEach(function(card
   });
 });
 
+document.getElementById('hamburger').addEventListener('click', function(){
+  var m = document.getElementById('mobMenu');
+  if(m.classList.contains('open')){
+    m.classList.remove('open');
+  } else {
+    m.classList.add('open');
+  }
+});
+
 </script>
 
 <div class="mob-menu" id="mobMenu">
-  <a href="https://zollocraft.pl" class="mob-link" onclick="document.getElementById('mobMenu').classList.remove('open')">← Strona Główna</a>
-  <a href="#beta" class="mob-link" onclick="document.getElementById('mobMenu').classList.remove('open')">🟣 Beta</a>
-  <a href="#rules" class="mob-link" onclick="document.getElementById('mobMenu').classList.remove('open')">⚔️ Zasady</a>
-  <a href="#team" class="mob-link" onclick="document.getElementById('mobMenu').classList.remove('open')">👥 Ekipa</a>
-  <a href="#changelog" class="mob-link" onclick="document.getElementById('mobMenu').classList.remove('open')">📋 Changelog</a>
+  <a href="https://zollocraft.pl" class="mob-link">← Strona Główna</a>
+  <a href="#beta" class="mob-link">🟣 Beta</a>
+  <a href="#rules" class="mob-link">⚔️ Zasady</a>
+  <a href="#team" class="mob-link">👥 Ekipa</a>
+  <a href="#changelog" class="mob-link">📋 Changelog</a>
   <div class="mob-divider"></div>
   <a href="https://discord.gg/neSake74T" target="_blank" class="mob-link">💬 Discord</a>
   <div class="mob-divider"></div>
-  <button onclick="toggleTheme();document.getElementById('mobMenu').classList.remove('open');" style="background:none;border:none;cursor:pointer;text-align:left;width:100%;font-family:'Exo 2',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);padding:14px 18px;border-radius:12px;">🌙 Zmień motyw</button>
+  <button onclick="toggleTheme();" style="background:none;border:none;cursor:pointer;text-align:left;width:100%;font-family:'Exo 2',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);padding:14px 18px;border-radius:12px;">🌙 Zmień motyw</button>
 </div>
   
 </body>
