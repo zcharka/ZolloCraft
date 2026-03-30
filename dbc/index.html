@@ -147,8 +147,8 @@ a{text-decoration:none;color:inherit;}
 .rv.vis{opacity:1;transform:translateY(0);}
 .rv1{transition-delay:.1s;}.rv2{transition-delay:.2s;}.rv3{transition-delay:.3s;}
 .hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:4px 8px;}
-.mob-menu{display:flex;position:fixed;top:80px;left:5%;right:5%;z-index:300;background:var(--mob-bg);backdrop-filter:blur(32px) saturate(180%);-webkit-backdrop-filter:blur(32px) saturate(180%);border:1px solid var(--border2);border-radius:20px;padding:20px;flex-direction:column;gap:4px;opacity:0;visibility:hidden;transform:translateY(-30px);transition:all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);pointer-events:none;}
-.mob-menu.open{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;box-shadow: 0 20px 40px var(--shadow);}
+.mob-menu{display:flex;position:fixed;top:80px;left:5%;right:5%;z-index:300;background:var(--mob-bg);backdrop-filter:blur(32px) saturate(180%);-webkit-backdrop-filter:blur(32px) saturate(180%);border:1px solid var(--border2);border-radius:20px;padding:20px;flex-direction:column;gap:4px;opacity:0;visibility:hidden;transform:translateY(-20px);transition:all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);pointer-events:none;}
+.mob-menu.open{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;box-shadow:0 20px 40px var(--shadow);}
 .mob-link{font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);padding:14px 18px;border-radius:12px;transition:background .2s;text-align:left;display:block;}
 .mob-link:hover{background:rgba(239,83,80,.1);}
 .mob-divider{height:1px;background:var(--border);margin:6px 0;}
@@ -341,7 +341,7 @@ a{text-decoration:none;color:inherit;}
   </div>
 </section>
 
-<section class="sec sec-b" id="team">
+  <section class="sec sec-b">
   <div class="wrap">
     <div class="sh rv"><div class="sh-t">Beta testerzy DBC</div><div class="sh-line"><div class="sh-bl"></div><span class="sh-s">Sprawdzają i zgłaszają błędy</span><div class="sh-br"></div></div></div>
     <div class="team-table rv">
@@ -369,6 +369,9 @@ a{text-decoration:none;color:inherit;}
         </div>
         <span class="tc-role r-beta">Beta tester trybu</span>
       </div>
+      </div> <!-- Zamknięcie team-table -->
+    </div> <!-- Zamknięcie wrap -->
+  </section>
 
 <section class="sec sec-b" id="changelog">
   <div class="wrap">
@@ -595,31 +598,15 @@ document.querySelectorAll('.rc, .tc, .dc-card, .cl-entry').forEach(function(card
   });
 });
 
-document.addEventListener('DOMContentLoaded', function(){
-  var btn = document.getElementById('hamburger');
-  var menu = document.getElementById('mobMenu');
-  if(btn && menu) {
-    btn.addEventListener('click', function(e){
-      e.stopPropagation();
-      menu.classList.toggle('open');
-    });
-    document.addEventListener('click', function(e){
-      if(!menu.contains(e.target) && e.target !== btn) menu.classList.remove('open');
-    });
-  }
+var ham = document.getElementById('hamburger');
+var mMenu = document.getElementById('mobMenu');
+ham.addEventListener('click', function(e){
+  e.stopPropagation();
+  mMenu.classList.toggle('open');
+});
+document.addEventListener('click', function(e){
+  if(!mMenu.contains(e.target) && e.target !== ham) mMenu.classList.remove('open');
 });
 </script>
-<!-- Tutaj przeniesione menu do środka body -->
-<div class="mob-menu" id="mobMenu">
-  <a href="https://zollocraft.pl" class="mob-link">← Strona Główna</a>
-  <a href="#beta" class="mob-link">🟣 Beta</a>
-  <a href="#rules" class="mob-link">⚔️ Zasady</a>
-  <a href="#team" class="mob-link">👥 Ekipa</a>
-  <a href="#changelog" class="mob-link">📋 Changelog</a>
-  <div class="mob-divider"></div>
-  <a href="https://discord.gg/neSake74T" target="_blank" class="mob-link">💬 Discord</a>
-  <div class="mob-divider"></div>
-  <button onclick="toggleTheme();" class="mob-link" style="background:none;border:none;cursor:pointer;width:100%;">🌙 Zmień motyw</button>
-</div>
 </body>
 </html>
