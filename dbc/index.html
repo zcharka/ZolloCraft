@@ -147,8 +147,8 @@ a{text-decoration:none;color:inherit;}
 .rv.vis{opacity:1;transform:translateY(0);}
 .rv1{transition-delay:.1s;}.rv2{transition-delay:.2s;}.rv3{transition-delay:.3s;}
 .hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:4px 8px;}
-.mob-menu{display:flex;position:fixed;top:80px;left:5%;right:5%;z-index:300;background:var(--mob-bg);backdrop-filter:blur(32px) saturate(180%);-webkit-backdrop-filter:blur(32px) saturate(180%);border:1px solid var(--border2);border-radius:20px;padding:20px;flex-direction:column;gap:4px;opacity:0;visibility:hidden;transform:translateY(-20px);transition:all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);pointer-events:none;}
-.mob-menu.open{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;}
+.mob-menu{display:flex;position:fixed;top:80px;left:5%;right:5%;z-index:300;background:var(--mob-bg);backdrop-filter:blur(32px) saturate(180%);-webkit-backdrop-filter:blur(32px) saturate(180%);border:1px solid var(--border2);border-radius:20px;padding:20px;flex-direction:column;gap:4px;opacity:0;visibility:hidden;transform:translateY(-30px);transition:all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);pointer-events:none;}
+.mob-menu.open{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;box-shadow: 0 20px 40px var(--shadow);}
 .mob-link{font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);padding:14px 18px;border-radius:12px;transition:background .2s;text-align:left;display:block;}
 .mob-link:hover{background:rgba(239,83,80,.1);}
 .mob-divider{height:1px;background:var(--border);margin:6px 0;}
@@ -595,17 +595,21 @@ document.querySelectorAll('.rc, .tc, .dc-card, .cl-entry').forEach(function(card
   });
 });
 
-document.getElementById('hamburger').addEventListener('click', function(){
-  var m = document.getElementById('mobMenu');
-  if(m.classList.contains('open')){
-    m.classList.remove('open');
-  } else {
-    m.classList.add('open');
+document.addEventListener('DOMContentLoaded', function(){
+  var btn = document.getElementById('hamburger');
+  var menu = document.getElementById('mobMenu');
+  if(btn && menu) {
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      menu.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e){
+      if(!menu.contains(e.target) && e.target !== btn) menu.classList.remove('open');
+    });
   }
 });
-
 </script>
-
+<!-- Tutaj przeniesione menu do środka body -->
 <div class="mob-menu" id="mobMenu">
   <a href="https://zollocraft.pl" class="mob-link">← Strona Główna</a>
   <a href="#beta" class="mob-link">🟣 Beta</a>
@@ -615,8 +619,7 @@ document.getElementById('hamburger').addEventListener('click', function(){
   <div class="mob-divider"></div>
   <a href="https://discord.gg/neSake74T" target="_blank" class="mob-link">💬 Discord</a>
   <div class="mob-divider"></div>
-  <button onclick="toggleTheme();" style="background:none;border:none;cursor:pointer;text-align:left;width:100%;font-family:'Exo 2',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);padding:14px 18px;border-radius:12px;">🌙 Zmień motyw</button>
+  <button onclick="toggleTheme();" class="mob-link" style="background:none;border:none;cursor:pointer;width:100%;">🌙 Zmień motyw</button>
 </div>
-
 </body>
 </html>
