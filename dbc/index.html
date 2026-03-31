@@ -195,7 +195,7 @@ a{text-decoration:none;color:inherit;}
     <div class="sh rv"><div class="sh-t">Trailer</div><div class="sh-line"><div class="sh-bl"></div><span class="sh-s">Obejrzyj zwiastun trybu</span><div class="sh-br"></div></div></div>
     <div class="rv" style="max-width:860px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--border);box-shadow:0 0 40px rgba(239,83,80,.15);">
       <div style="position:relative;padding-bottom:56.25%;height:0;">
-        <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/6cNt7g-dUiY" title="Dead by Craft - Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube-nocookie.com/embed/6cNt7g-dUiY" title="Dead by Craft - Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -505,16 +505,18 @@ document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
 function handleNavScroll(animate){
   var nb=document.querySelector('.nb');
   if(!animate){nb.style.transition='none';}
+  var isLight=document.documentElement.getAttribute('data-theme')==='light';
+  
   if(window.scrollY>80){
-    nb.style.top='12px';nb.style.left='5%';nb.style.right='5%';nb.style.width='auto';nb.style.height='52px';
-    var isLight=document.documentElement.getAttribute('data-theme')==='light';
+    nb.style.top='12px';nb.style.left='5%';nb.style.width='90%';nb.style.height='52px';
     nb.style.background=isLight?'rgba(248,244,238,.6)':'rgba(8,5,3,.45)';
     nb.style.backdropFilter='blur(32px) saturate(180%)';nb.style.webkitBackdropFilter='blur(32px) saturate(180%)';
-    nb.style.border='1px solid rgba(239,83,80,.2)';nb.style.borderRadius='999px';nb.style.boxShadow='0 4px 30px rgba(0,0,0,.5)';
+    nb.style.border='1px solid rgba(239,83,80,.3)';nb.style.borderRadius='999px';nb.style.boxShadow='0 8px 32px rgba(0,0,0,.4)';
   } else {
-    nb.style.top='0';nb.style.left='0';nb.style.right='0';nb.style.width='100%';nb.style.height='64px';
+    nb.style.top='0';nb.style.left='0';nb.style.width='100%';nb.style.height='64px';
     nb.style.background='var(--nb-bg)';nb.style.backdropFilter='blur(16px)';nb.style.webkitBackdropFilter='blur(16px)';
-    nb.style.border='none';nb.style.borderBottom='1px solid rgba(239,83,80,.15)';nb.style.borderRadius='0';nb.style.boxShadow='none';
+    nb.style.borderRadius='0';nb.style.boxShadow='none';
+    nb.style.border='1px solid transparent';nb.style.borderBottom='1px solid rgba(239,83,80,0.15)';
   }
   if(!animate){
     requestAnimationFrame(function(){requestAnimationFrame(function(){nb.style.transition='';});});
