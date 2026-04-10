@@ -166,6 +166,19 @@ a{text-decoration:none;color:inherit;}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .rv.vis{opacity:1;transform:translateY(0);}
 .rv1{transition-delay:.1s;}.rv2{transition-delay:.2s;}.rv3{transition-delay:.3s;}
+.rule-section-header{
+  color:var(--gold)!important;
+  font-size:.68rem!important;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  padding-left:0!important;
+  margin-top:10px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:4px;
+  pointer-events:none;
+}
+.rule-section-header::before{content:''!important;}
 </style>
 </head>
 <body>
@@ -242,14 +255,36 @@ a{text-decoration:none;color:inherit;}
         </div>
         <div class="rc-body">
           <div class="rc-title">🧍 Instrukcje dla Ocalałych</div>
-          <ul>
-            <li>🔧 Naprawiaj generatory prawym przyciskiem myszy (LPM)</li>
-            <li>⚡ Napraw 5 generatorów, aby odblokować główne wyjście</li>
-            <li>🎯 Podczas naprawy pojawiają się tzw. "skill checki"</li>
-            <li>🟢 Zielone pole = poprawnie | Żółte pole = great</li>
-            <li>⭐ Great Skill Check przyspiesza proces naprawy</li>
-            <li>❌ Błąd przy naprawie może zdradzić Twoją pozycję zabójcy</li>
-            <li>🤝 Współpracuj z drużyną i używaj latarki (LPM) do oślepiania</li>
+            <ul>
+  <li class="rule-section-header">Poruszanie</li>
+  <li>Gdy biegasz, zabójca widzi Twoje ślady</li>
+  <li>Ślady znikają po dziesięciu sekundach</li>
+  <li class="rule-section-header">Leczenie</li>
+  <li>Możesz leczyć rannych ocalałych</li>
+  <li>Leczenie trwa minutę</li>
+  <li class="rule-section-header">Generator</li>
+  <li>Możesz naprawiać generator (LPM)</li>
+  <li>Gdy zepsujesz generator, zabójca dostaje powiadomienie</li>
+  <li>Zepsuty generator traci postęp</li>
+  <li>Ukończ pięć generatorów aby otworzyć wyjście</li>
+  <li class="rule-section-header">Zabójca</li>
+  <li>Gdy zabójca Cię uderzy, zaczniesz krwawić</li>
+  <li>Zabójca może Cię powalić i powiesić na haku</li>
+  <li>Zabójca widzi Twoje ślady gdy biegniesz – znikają po 10 sekundach</li>
+  <li class="rule-section-header">Haki</li>
+  <li>Reszta ocalałych może Cię zdjąć z haka (LPM) — trwa 3 sekundy</li>
+  <li>Przy drugim powieszeniu musisz wykonywać testy umiejętności</li>
+  <li>Trzecie powieszenie = śmierć</li>
+  <li class="rule-section-header">Okna</li>
+  <li>Możesz przeskoczyć przez okno szybciej niż zabójca</li>
+  <li class="rule-section-header">Wyjście</li>
+  <li>Otwierasz wyjście gdy pięć generatorów zostało ukończonych</li>
+  <li>Otwarcie trwa 20 sekund</li>
+  <li class="rule-section-header">Wyposażenie</li>
+  <li>Ocalały może wybrać 4 perki oraz 1 przedmiot</li>
+  <li class="rule-section-header">Testy umiejętności</li>
+  <li>Pojawiają się przy naprawianiu generatora, leczeniu lub noszeniu przez zabójcę</li>
+  <li>Traf białym polem na zielone (BASIC) lub pomarańczowe (GREAT)</li>
           </ul>
         </div>
       </div>
@@ -261,12 +296,21 @@ a{text-decoration:none;color:inherit;}
         </div>
         <div class="rc-body">
           <div class="rc-title">🔪 Instrukcje dla Zabójcy</div>
-          <ul>
-            <li>🧨 Niszcz generatory za pomocą lewego przycisku myszy (LPM)</li>
-            <li>🩸 Atakuj ocalałych za pomocą LPM, by ich zranić i położyć na ziemię</li>
-            <li>🪟 Przeskakuj przez okna, aby szybciej ścigać swoje ofiary</li>
-            <li>⚡ Uszkodzony generator zostanie dla Ciebie podświetlony na czerwono</li>
-            <li>⏳ Uwaga: Przez pierwsze 15 sekund gry masz ograniczoną widoczność</li>
+            <ul>
+  <li class="rule-section-header">Generator</li>
+  <li>Zniszcz generator (LPM) — straci część postępu</li>
+  <li>Gdy ocalały psuje generator, widzisz jego aurę</li>
+  <li class="rule-section-header">Ocalali</li>
+  <li>Uderz ocalałego (LPM) by go zranić</li>
+  <li>Po jednym lub dwóch atakach ocalały zostaje powalony — możesz go powiesić na haku</li>
+  <li>Gdy dopadniesz ostatniego ocalałego możesz go wykończyć</li>
+  <li class="rule-section-header">Haki</li>
+  <li>Użyj haków na mapie by poświęcić ocalałych</li>
+  <li>Ocalały powieszony trzeci raz umiera</li>
+  <li class="rule-section-header">Okna</li>
+  <li>Możesz przechodzić przez okna — wolniej niż ocalali</li>
+  <li class="rule-section-header">Wyposażenie</li>
+  <li>Zabójca może wybrać 4 perki oraz 1 przedmiot</li>
           </ul>
         </div>
       </div>
